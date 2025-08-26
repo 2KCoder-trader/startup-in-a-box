@@ -64,7 +64,7 @@ func windowsToWslPath(winPath string) string {
 	return path
 }
 
-func main() {
+func createWSL() {
 	fmt.Println("Starting setup...")
 
 	// Step 1: Ensure WSL exists
@@ -85,9 +85,10 @@ func main() {
 		runPowershell("shutdown /r /t 5")
 		return
 	}
+}
 
-	//runSudo(`wsl -d Ubuntu -- bash -c "sudo -S apt update && sudo -S apt install -y docker.io"`)
 
+func runImage() {
 	// Get the directory where the executable is located
 	exePath, err := os.Getwd()
 	if err != nil {
